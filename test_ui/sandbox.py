@@ -1,6 +1,7 @@
 from tracks_framework_python.model.base_test_case import BaseTestCase
 from tracks_framework_python.pages.projects import ProjectsPage
 from tracks_framework_python.pages.login import LoginPage
+from tracks_framework_python.services.projects import ProjectsAPI
 import unittest
 
 
@@ -28,6 +29,10 @@ class SandBox(BaseTestCase):
         error = projects_page.add_project('', 'test note')
 
         self.assertEqual(error, "Name project must have a name")
+
+    def test_api_playground(self):
+        api_test = ProjectsAPI.get_all()
+        print(api_test)
 
 
 if __name__ == '__main__':
